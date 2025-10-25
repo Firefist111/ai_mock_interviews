@@ -13,10 +13,22 @@ import {
 async function Home() {
   const user = await getCurrentUser();
 
-  const [userInterviews, allInterview] = await Promise.all([
-    getInterviewsByUserId(user?.id!),
-    getLatestInterviews({ userId: user?.id! }),
-  ]);
+  if (!user?.id) {
+  return (
+    <>
+      <section className="card-cta">
+        <h2>Please Sign In</h2>
+        <p>You need to login first to view interviews.</p>
+      </section>
+    </>
+  );
+}
+
+const [userInterviews, allInterview] = await Promise.all([
+  getInterviewsByUserId(user.id),
+  getLatestInterviews({ userId: user.id }),
+]);
+
 
   const hasPastInterviews = userInterviews?.length! > 0;
   const hasUpcomingInterviews = allInterview?.length! > 0;
