@@ -24,3 +24,13 @@ const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+
+// const firebaseConfig = {
+//   apiKey: "AIzaSyDApmORyknDd_KCMyojEnpzPn7_XRBHlbw",
+//   authDomain: "prepwise-bb42a.firebaseapp.com",
+//   projectId: "prepwise-bb42a",
+//   storageBucket: "prepwise-bb42a.firebasestorage.app",
+//   messagingSenderId: "615583956801",
+//   appId: "1:615583956801:web:8f70d2bf2fe680bc29ebc0",
+//   measurementId: "G-FR5L8PB58C"
+// };
